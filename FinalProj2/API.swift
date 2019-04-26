@@ -9,6 +9,7 @@
 
 // part 1 https://www.youtube.com/watch?v=_c0pAz3UPEs
 // part 2 https://www.youtube.com/watch?v=doqtsIsbtqs
+// another https://www.youtube.com/watch?v=YY3bTxgxWss
 
 import UIKit
 
@@ -19,7 +20,8 @@ struct ApiKeys {
 
 struct food{
     let title: String
-    let image: UIImage
+    let imageURL: String
+    //let image: UIImage
     let showurl: String
     enum SerializationError:Error {
         case missing(String)
@@ -27,17 +29,38 @@ struct food{
     }
     
     init(json:[String:Any]) throws {
+        
+        print("------0.0")
+        
         guard let title = json["label"] as? String else {throw SerializationError.missing("title is missing")}
-        guard let image = json["image"] as? UIImage else {throw SerializationError.missing("Image is missing")}
-        guard let url = json["url"] as? String else {throw SerializationError.missing("URL is missing")}
+        print("------0.1")
+        let imageURL = json["image"] as! String
+        //as? UIImage else {throw SerializationError.missing("Image is missing")}
+        print("------0.2")
+        //print("\(image)")
+        guard let showurl = json["url"] as? String else {throw SerializationError.missing("URL is missing")}
+        print("------0.3")
+        //let url = URL(string:image)!
+        
+        
+        
+        
         
         self.title = title
-        self.image = image
-        self.showurl = url
+        self.imageURL = imageURL
+        self.showurl = showurl
+        //self.image = UIImage()
         
         print("------\(title)")
-        print("------\(url)")
+        print("------\(showurl)")
+        print("------\(imageURL)")
     }
+    
+    //func loadImage(){
+        
+        
+    //}
+    
     
     static let basePath = "http://api.edamam.com/search?app_id=\(ApiKeys.appId)&app_key=\(ApiKeys.appKey)"
     
@@ -71,22 +94,20 @@ struct food{
                             print("------------4")
                             if recipe != nil {
                                 print("------------5")
-                              //  print("\(recipe)")
                                 let actualRecipe = recipe?["recipe"] as? [String:Any]
                                 print("Actual recipe: \(actualRecipe)")
-                                
-                                
-                                    let foodObject = try? food(json:actualRecipe ?? [:])
-                                    if foodObject != nil{
-                                        getfoodArray.append(foodObject!)
-                                    }
+                                let foodObject = try? food(json:actualRecipe ?? [:])
+                                //foodObject?.loadImage()
+                                if foodObject != nil{
+                                    getfoodArray.append(foodObject!)
+                                    print("------------6")
+                                    
+                                }
                                
                                     /*
                                 for recipePoint in actualRecipe ?? [:] {
                                     print("------------6")
-                                    
-                                    
-                                    
+                                 
                                     if let foodObject = try? food(json:recipePoint) {
                                         print("------------7")
                                         getfoodArray.append(foodObject)
@@ -96,6 +117,7 @@ struct food{
                         }
                     }
                 }catch {
+                    print("here")
                     print(error.localizedDescription)
                 }
                 completion(getfoodArray)

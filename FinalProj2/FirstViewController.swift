@@ -16,15 +16,19 @@ class FirstViewController: UITableViewController  {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        
         food.getfood(withLocation: "chicken") { (results:([food])) in
            for result in results {
-        //        print("&q=\(result)\n\n")
+               print("&q=\(result)\n\n")
            }
-   }
+        }
         
+        //updateFood(location: <#T##String#>)
+    
+    }
+    func updateFood (location:String) {
         
     }
-    
     override func numberOfSections(in tableView: UITableView) -> Int
     {
         return 1
@@ -42,8 +46,21 @@ class FirstViewController: UITableViewController  {
         let foodObject = foodData[indexPath.row]
         
         cell.textLabel?.text = foodObject.title
-        cell.detailTextLabel?.text = foodObject.showurl
-        cell.imageView?.image = foodObject.image
+        cell.textLabel?.text = foodObject.showurl
+        //cell.imageView?.image = foodObject.image
+        
+        /*
+        if let imageURL = URL(string: foodObject.imageURL) {
+            DispatchQueue.global().async {
+                let data = try? Data(contentsOf: imageURL)
+                if let data = data {
+                    let image = UIImage(data:data)
+                    DispatchQueue.main.async {
+                        cell.imageView?.image = image
+                    }
+                }
+            }
+        }*/
         
         return cell
     

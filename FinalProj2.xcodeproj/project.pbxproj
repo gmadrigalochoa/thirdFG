@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D10F4BC227294F300637C54 /* categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D10F4BB227294F300637C54 /* categories.swift */; };
+		8D10F4C022729D3B00637C54 /* Add.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D10F4BF22729D3B00637C54 /* Add.swift */; };
+		8D10F4C222729D5500637C54 /* FinalList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D10F4C122729D5500637C54 /* FinalList.swift */; };
 		8D123C20225AEE960087E67C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D123C1F225AEE960087E67C /* AppDelegate.swift */; };
 		8D123C22225AEE960087E67C /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D123C21225AEE960087E67C /* FirstViewController.swift */; };
 		8D123C27225AEE960087E67C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D123C25225AEE960087E67C /* Main.storyboard */; };
@@ -15,6 +18,7 @@
 		8D123C37225AEE980087E67C /* FinalProj2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D123C36225AEE980087E67C /* FinalProj2Tests.swift */; };
 		8D123C42225AEE980087E67C /* FinalProj2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D123C41225AEE980087E67C /* FinalProj2UITests.swift */; };
 		8D1823A42262E9990072972C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1823A32262E9990072972C /* API.swift */; };
+		8DBF7834226FDB7E009365FE /* NewPyramid.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DBF7833226FDB7E009365FE /* NewPyramid.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +52,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8D10F4BB227294F300637C54 /* categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = categories.swift; sourceTree = "<group>"; };
+		8D10F4BF22729D3B00637C54 /* Add.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Add.swift; sourceTree = "<group>"; };
+		8D10F4C122729D5500637C54 /* FinalList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalList.swift; sourceTree = "<group>"; };
 		8D123C1C225AEE960087E67C /* FinalProj2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FinalProj2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D123C1F225AEE960087E67C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8D123C21225AEE960087E67C /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +69,7 @@
 		8D123C41225AEE980087E67C /* FinalProj2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalProj2UITests.swift; sourceTree = "<group>"; };
 		8D123C43225AEE980087E67C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D1823A32262E9990072972C /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		8DBF7833226FDB7E009365FE /* NewPyramid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NewPyramid.png; path = ../../../Downloads/FinalProj/FinalProj/NewPyramid.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,8 +125,12 @@
 				8D1823A32262E9990072972C /* API.swift */,
 				8D123C25225AEE960087E67C /* Main.storyboard */,
 				8D123C28225AEE980087E67C /* Assets.xcassets */,
+				8DBF7833226FDB7E009365FE /* NewPyramid.png */,
 				8D123C2A225AEE980087E67C /* LaunchScreen.storyboard */,
 				8D123C2D225AEE980087E67C /* Info.plist */,
+				8D10F4BB227294F300637C54 /* categories.swift */,
+				8D10F4BF22729D3B00637C54 /* Add.swift */,
+				8D10F4C122729D5500637C54 /* FinalList.swift */,
 			);
 			path = FinalProj2;
 			sourceTree = "<group>";
@@ -247,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D123C2C225AEE980087E67C /* LaunchScreen.storyboard in Resources */,
+				8DBF7834226FDB7E009365FE /* NewPyramid.png in Resources */,
 				8D123C29225AEE980087E67C /* Assets.xcassets in Resources */,
 				8D123C27225AEE960087E67C /* Main.storyboard in Resources */,
 			);
@@ -274,7 +287,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D123C20225AEE960087E67C /* AppDelegate.swift in Sources */,
+				8D10F4BC227294F300637C54 /* categories.swift in Sources */,
+				8D10F4C222729D5500637C54 /* FinalList.swift in Sources */,
 				8D1823A42262E9990072972C /* API.swift in Sources */,
+				8D10F4C022729D3B00637C54 /* Add.swift in Sources */,
 				8D123C22225AEE960087E67C /* FirstViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
