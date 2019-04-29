@@ -10,6 +10,7 @@ import UIKit
 
 class FinalList: UITableViewController {
     
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +18,7 @@ class FinalList: UITableViewController {
         self.navigationItem.title = "Final List"
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(FinalList.didTapAddItemButton(_:)))
         
-        
+        FoodSelection.instance.setFinalListController(fl: self)
     }
     
     override func didReceiveMemoryWarning() {
@@ -25,9 +26,7 @@ class FinalList: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    private var todoItems = ToDoItem.getMockData()
-    //private var todoItems = [ToDoItem]()
-    //var CondimentTitle: [String] = ["Ketchup", "Mustard", "Mayo", "BBQ", "Tapatio"]
+//    private var todoItems : [ToDoItem]
     
     override func numberOfSections(in tableView: UITableView) -> Int
     {
@@ -36,20 +35,24 @@ class FinalList: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return todoItems.count
+        return FoodSelection.instance.selection.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellit", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellList", for: indexPath)
         
-        if indexPath.row < todoItems.count
+        
+        
+        if indexPath.row < FoodSelection.instance.selection.count
         {
-            let item = todoItems[indexPath.row]
+            
+            
+            let item = FoodSelection.instance.selection[indexPath.row]
             cell.textLabel?.text = item.title
             
-            let accessory: UITableViewCell.AccessoryType = item.done ? .checkmark : .none
-            cell.accessoryType = accessory
+            //let accessory: UITableViewCell.AccessoryType = item.done ? .checkmark : .none
+            //cell.accessoryType = accessory
         }
         
         return cell
@@ -59,9 +62,11 @@ class FinalList: UITableViewController {
     {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if indexPath.row < todoItems.count
+        
+        
+        if indexPath.row < FoodSelection.instance.selection.count
         {
-            let item = todoItems[indexPath.row]
+            let item = FoodSelection.instance.selection[indexPath.row]
             item.done = !item.done
             
             tableView.reloadRows(at: [indexPath], with: .automatic)
@@ -93,24 +98,33 @@ class FinalList: UITableViewController {
         // Present the alert to the user
         self.present(alert, animated: true, completion: nil)
     }
+    func addFromOther() {
+        self.addNewToDoItem(title: chosen)
+        
+    }
     
-    private func addNewToDoItem(title: String)
+    public func addNewToDoItem(title: String)
     {
+        
+        
         // The index of the new item will be the current item count
-        let newIndex = todoItems.count
-        
+        let newIndex = FoodSelection.instance.selection.count
+        print("count of todotiems \(newIndex)")
         // Create new item and add it to the todo items list
-        todoItems.append(ToDoItem(title: title))
+        FoodSelection.instance.selection.append(ToDoItem(title: title))
         
+        tableView.reloadData()
+     //   print("added \(FoodSelection.selection)")
         // Tell the table view a new row has been created
-        tableView.insertRows(at: [IndexPath(row: newIndex, section: 0)], with: .top)
+        //tableView.insertRows(at: [IndexPath(row: newIndex, section: 0)], with: .top)
+        
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)
     {
-        if indexPath.row < todoItems.count
+        if indexPath.row < FoodSelection.instance.selection.count
         {
-            todoItems.remove(at: indexPath.row)
+            FoodSelection.instance.selection.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .top)
         }
     }

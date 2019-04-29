@@ -28,6 +28,7 @@ struct food{
         case invalid(String, Any)
     }
     
+    //init(title:String,)
     init(json:[String:Any]) throws {
         
         print("------0.0")
@@ -64,8 +65,18 @@ struct food{
     
     static let basePath = "http://api.edamam.com/search?app_id=\(ApiKeys.appId)&app_key=\(ApiKeys.appKey)"
     
-    static func getfood (withLocation location:String, completion: @escaping ([food]) -> ()) {
-        let url = basePath + "&q=" + location
+    static func getfood (withLocation location:[ToDoItem], fvc:FirstViewController, completion: @escaping ([food]) -> ()) {
+        
+        
+        var url = String(basePath)
+        
+        
+        for todo in location{
+            
+            url = url +  "&q=" + todo.title.replacingOccurrences(of: " ", with: "+")
+        }
+        
+        print("url = \(url)")
         //let request = URLRequest(url: URL(string: url)!)
         let request = NSMutableURLRequest(url: URL(string: url)!)
         request.httpMethod = "GET"
@@ -87,32 +98,43 @@ struct food{
                     print("------------2")
                     if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
                         print("------------3")
-                        let hitsFoods = json["hits"] as? [Any]
-                        let recipe = hitsFoods?[0] as? [String:Any]
-                       // print("\(recipe)")
-                        if hitsFoods != nil {
-                            print("------------4")
-                            if recipe != nil {
-                                print("------------5")
-                                let actualRecipe = recipe?["recipe"] as? [String:Any]
-                                print("Actual recipe: \(actualRecipe)")
-                                let foodObject = try? food(json:actualRecipe ?? [:])
-                                //foodObject?.loadImage()
-                                if foodObject != nil{
-                                    getfoodArray.append(foodObject!)
-                                    print("------------6")
-                                    
-                                }
-                               
-                                    /*
-                                for recipePoint in actualRecipe ?? [:] {
-                                    print("------------6")
-                                 
-                                    if let foodObject = try? food(json:recipePoint) {
-                                        print("------------7")
-                                        getfoodArray.append(foodObject)
+                        let hitsFoods = json["hits"] as! [Any]
+                        
+                        for i in 0..<hitsFoods.count{
+                            
+                            
+                            print("i = \(i)")
+                            if (i == 50){
+                                print("I happen")
+                                break
+                            }
+                            let recipe = hitsFoods[i] as? [String:Any]
+                           // print("\(recipe)")
+                            if hitsFoods != nil {
+                                print("------------4")
+                                if recipe != nil {
+                                    print("------------5")
+                                    let actualRecipe = recipe?["recipe"] as? [String:Any]
+                               //     print("Actual recipe: \(actualRecipe)")
+                                    let foodObject = try? food(json:actualRecipe ?? [:])
+                                    //foodObject?.loadImage()
+                                    if foodObject != nil{
+                                        getfoodArray.append(foodObject!)
+                                        fvc.addFood(data: foodObject!)
+                                        print("------------6")
+                                        
                                     }
-                                }*/
+                                   
+                                        /*
+                                    for recipePoint in actualRecipe ?? [:] {
+                                        print("------------6")
+                                     
+                                        if let foodObject = try? food(json:recipePoint) {
+                                            print("------------7")
+                                            getfoodArray.append(foodObject)
+                                        }
+                                    }*/
+                                }
                             }
                         }
                     }
@@ -125,6 +147,7 @@ struct food{
         })
         //}
         task.resume()
+
     }
 }
 
