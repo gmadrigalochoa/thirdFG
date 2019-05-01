@@ -20,6 +20,7 @@
 		8D1823A42262E9990072972C /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1823A32262E9990072972C /* API.swift */; };
 		8D48574122768A1B00C601DF /* FoodSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D48574022768A1B00C601DF /* FoodSelection.swift */; };
 		8DBF7834226FDB7E009365FE /* NewPyramid.png in Resources */ = {isa = PBXBuildFile; fileRef = 8DBF7833226FDB7E009365FE /* NewPyramid.png */; };
+		8DC5B9D922791C7A00A993EF /* Middle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC5B9D822791C7A00A993EF /* Middle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		8D1823A32262E9990072972C /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		8D48574022768A1B00C601DF /* FoodSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodSelection.swift; sourceTree = "<group>"; };
 		8DBF7833226FDB7E009365FE /* NewPyramid.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = NewPyramid.png; path = ../../../Downloads/FinalProj/FinalProj/NewPyramid.png; sourceTree = "<group>"; };
+		8DC5B9D822791C7A00A993EF /* Middle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Middle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +136,7 @@
 				8D10F4BF22729D3B00637C54 /* Add.swift */,
 				8D10F4C122729D5500637C54 /* FinalList.swift */,
 				8D48574022768A1B00C601DF /* FoodSelection.swift */,
+				8DC5B9D822791C7A00A993EF /* Middle.swift */,
 			);
 			path = FinalProj2;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D123C20225AEE960087E67C /* AppDelegate.swift in Sources */,
+				8DC5B9D922791C7A00A993EF /* Middle.swift in Sources */,
 				8D10F4BC227294F300637C54 /* categories.swift in Sources */,
 				8D10F4C222729D5500637C54 /* FinalList.swift in Sources */,
 				8D1823A42262E9990072972C /* API.swift in Sources */,

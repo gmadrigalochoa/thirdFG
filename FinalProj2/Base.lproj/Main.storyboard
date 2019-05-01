@@ -61,10 +61,10 @@
             </objects>
             <point key="canvasLocation" x="-1996" y="8.5457271364317844"/>
         </scene>
-        <!--View Controller-->
+        <!--Middle-->
         <scene sceneID="JG8-k7-BIo">
             <objects>
-                <viewController id="p4J-sK-TRz" sceneMemberID="viewController">
+                <viewController id="p4J-sK-TRz" customClass="Middle" customModule="FinalProj2" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xav-WU-Vjl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -90,6 +90,7 @@
                                     <color key="titleColor" red="0.2992925018" green="0.048253962390000002" blue="0.65375158629999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
+                                    <action selector="SubmitButton:" destination="p4J-sK-TRz" eventType="touchUpInside" id="9Q0-DQ-SQl"/>
                                     <segue destination="vDh-hb-Qf8" kind="presentation" id="Na2-2H-Qwm"/>
                                 </connections>
                             </button>

@@ -34,16 +34,10 @@ class FirstViewController: UITableViewController{
             
             for result in results {
                 print("&q=\(result)\n\n")
-               // self.foodData.append(result)
-                
                 
             }
-           // self.reloadData()
         }
         
-        //self.tableView.delegate = self
-        //self.tableView.dataSource = self
-        //updateFood(location: <#T##String#>)
         self.beginTimer()
     }
     

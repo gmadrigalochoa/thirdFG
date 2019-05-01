@@ -7,9 +7,6 @@
 //
 
 
-// part 1 https://www.youtube.com/watch?v=_c0pAz3UPEs
-// part 2 https://www.youtube.com/watch?v=doqtsIsbtqs
-// another https://www.youtube.com/watch?v=YY3bTxgxWss
 
 import UIKit
 
@@ -28,7 +25,6 @@ struct food{
         case invalid(String, Any)
     }
     
-    //init(title:String,)
     init(json:[String:Any]) throws {
         
         print("------0.0")
@@ -44,9 +40,6 @@ struct food{
         //let url = URL(string:image)!
         
         
-        
-        
-        
         self.title = title
         self.imageURL = imageURL
         self.showurl = showurl
@@ -56,11 +49,6 @@ struct food{
         print("------\(showurl)")
         print("------\(imageURL)")
     }
-    
-    //func loadImage(){
-        
-        
-    //}
     
     
     static let basePath = "http://api.edamam.com/search?app_id=\(ApiKeys.appId)&app_key=\(ApiKeys.appKey)"
@@ -97,6 +85,7 @@ struct food{
                 do {
                     print("------------2")
                     if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
+                        
                         print("------------3")
                         let hitsFoods = json["hits"] as! [Any]
                         
@@ -104,7 +93,7 @@ struct food{
                             
                             
                             print("i = \(i)")
-                            if (i == 50){
+                            if (i == 5){
                                 print("I happen")
                                 break
                             }

@@ -12,11 +12,11 @@ import UIKit
 var chosen = String()
 var foodDetailInfoArray: [String] = []
 
-var pickerMain: [String] = ["Condiments", "Dairy", "Fruits", "Protein", "Vegetables"]
+var pickerMain: [String] = ["Condiments", "Dairy", "Fruits", "Grains", "Protein", "Vegetables"]
 var selected: [String] = [String]()
 var CondimentTitle: [String] = ["Ketchup", "Mustard", "Mayo", "BBQ", "Tapatio"]
 var DairyTitle: [String] = ["Milk", "Cheddar Cheese", "Mozzarella Cheese", "Parmesan Cheese", "Yogurt"]
-var FruitTitle: [String] = ["Apple", "Banana", "Orange", "Strawberry", "Lemon"]
+var FruitTitle: [String] = ["Apple", "Avocado", "Banana", "Orange", "Strawberry", "Lemon"]
 var MeatTitle: [String] = ["Beef", "Chicken", "Duck", "Lamb", "Pork"]
 var PastaTitle: [String] = ["Angel Hair", "Farfalle", "Spagetti", "Mein Noodles", "Rice Noodles"]
 var VeggieTitle: [String] = ["Broccoli", "Carrot", "Corn", "Lettuce", "Onion"]
@@ -25,19 +25,27 @@ var VeggieTitle: [String] = ["Broccoli", "Carrot", "Corn", "Lettuce", "Onion"]
 class categories: UITableViewController  {
     
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        //self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(categories.didTapDoneButton(_:)))
         
         
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        
         return pickerMain[section]
+    }
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let returnedView = UIView(frame: CGRect(x: 0, y: 0, width: view.frame.size.width, height: 30))
+        returnedView.backgroundColor = UIColor(red:0.94, green:0.79, blue:0.84, alpha:1.0)//.lightGray
+        
+        let label = UILabel(frame: CGRect(x: 10, y: 7, width: view.frame.size.width, height: 20))
+        label.text = pickerMain[section]
+        label.textColor = .black
+        returnedView.addSubview(label)
+        
+        return returnedView
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int
@@ -55,9 +63,9 @@ class categories: UITableViewController  {
         case 2:
             return FruitTitle.count
         case 3:
-            return MeatTitle.count
-        case 4:
             return PastaTitle.count
+        case 4:
+            return MeatTitle.count
         case 5:
             return VeggieTitle.count
             
@@ -65,7 +73,7 @@ class categories: UITableViewController  {
             return 0
         }
     }
-        //return pickerMain.count
+    
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
     {
@@ -82,10 +90,10 @@ class categories: UITableViewController  {
             cell.textLabel?.text = FruitTitle[indexPath.row]
             break
         case 3:
-            cell.textLabel?.text = MeatTitle[indexPath.row]
+            cell.textLabel?.text = PastaTitle[indexPath.row]
             break
         case 4:
-            cell.textLabel?.text = PastaTitle[indexPath.row]
+            cell.textLabel?.text = MeatTitle[indexPath.row]
             break
         case 5:
             cell.textLabel?.text = VeggieTitle[indexPath.row]
@@ -122,31 +130,6 @@ class categories: UITableViewController  {
       //  print("array -----\(FoodSelection.selection)")
         
     }
-    
-    //private func addNewToDoItem(title: String)
-    //{
-        
-        // Create new item and add it to the todo items list
-        //todoItems.append(ToDoItem(title: title))
-        
-    //}
-    
-    /*@objc func didTapDoneButton(_ sender: UIBarButtonItem)
-    {
-        // Create an alert
-        let alert = UIAlertController()
-        
-        // Add a "OK" button to the alert. The handler calls addNewToDoItem()
-        alert.addAction(UIAlertAction(title: "Done", style: .default, handler: { (_) in
-            if let title = alert.textFields?[0].text
-            {
-                
-            }
-        }))
-        
-        // Present the alert to the user
-        self.present(alert, animated: true, completion: nil)
-    }*/
     
     
 }
